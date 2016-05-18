@@ -5,19 +5,21 @@
  * Contains \Drupal\field_example\Plugin\field\widget\TextWidget.
  */
 
-namespace Drupal\field_example\Plugin\Field\FieldWidget;
+namespace Drupal\field_multi\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\image\Plugin\Field\FieldWidget\ImageWidget;
+use Drupal\image\Plugin\Field\FieldWidget\FileWidget;
 
 /**
- * Plugin implementation of the 'field_example_text' widget.
+ * Plugin implementation of the 'field_multi' widget.
  *
  * @FieldWidget(
- *   id = "field_example_text",
- *   module = "field_example",
- *   label = @Translation("RGB value as #ffffff"),
+ *   id = "field_multi",
+ *   module = "field_multi",
+ *   label = @Translation("This is a multi field Widget"),
  *   field_types = {
  *     "field_example_rgb"
  *   }
@@ -30,20 +32,26 @@ class FieldMultiWidget extends WidgetBase {
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $value = isset($items[$delta]->value) ? $items[$delta]->value : '';
-    $element['value']= array(
+    $element['title']= array(
       '#type' => 'textfield',
       '#default_value' => $value,
-      '#size' => 7,
-      '#maxlength' => 7,
-      '#element_validate' => array(
-        array($this, 'validate'),
-      ),
+      '#empty_value' => '',
     );
-    $element['image']= array(
+    $element['body']= array(
+      '#type' => 'textfield',
+      '#default_value' => $value,
+      '#empty_value' => '',
+    );
+    $element['image'] = array(
       '#type' => 'file',
-      ),
+      '#title' => t('Image'),
+
+      '#default_value' => isset($items[$delta]->image) ?
+        $items[$delta]->image : null,
+
+      '#empty_value' => '',
     );
-    return array('value' => $element);
+    return $element;
   }
 
   /**

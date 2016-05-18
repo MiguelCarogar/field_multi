@@ -5,22 +5,24 @@
  * Contains Drupal\field_example\Plugin\Field\FieldType\RgbItem.
  */
 
-namespace Drupal\field_example\Plugin\Field\FieldType;
+namespace Drupal\field_multi\Plugin\Field\FieldType;
 
 use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\TypedData\DataDefinition;
+use Drupal\image\Plugin\Field\FieldType\ImageItem;
+use Drupal\file\Plugin\Field\FieldType\FileItem;
 
 /**
- * Plugin implementation of the 'field_example_rgb' field type.
+ * Plugin implementation of the 'field_multi' field type.
  *
  * @FieldType(
- *   id = "field_example_rgb",
- *   label = @Translation("Example Color RGB"),
- *   module = "field_example",
- *   description = @Translation("Demonstrates a field composed of an RGB color."),
- *   default_widget = "field_example_text",
- *   default_formatter = "field_example_simple_text"
+ *   id = "field_multi",
+ *   label = @Translation("Field Multi Field"),
+ *   module = "field_multi",
+ *   description = @Translation("A field with multiple fields."),
+ *   default_widget = "field_multi",
+ *   default_formatter = "field_multi"
  * )
  */
 class FieldMulti extends FieldItemBase {
@@ -36,12 +38,12 @@ class FieldMulti extends FieldItemBase {
         ),
         'title' => array(
           'type' => 'text',
-          'size' => 'tiny',
+          'size' => 'medium',
           'not null' => FALSE,
         ),
         'body' => array(
           'type' => 'text',
-          'size' => 'tiny',
+          'size' => 'medium',
           'not null' => FALSE,
         ),
       ),

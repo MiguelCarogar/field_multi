@@ -5,20 +5,20 @@
  * Contains Drupal\field_example\Plugin\Field\FieldFormatter\SimpleTextFormatter.
  */
 
-namespace Drupal\field_example\Plugin\Field\FieldFormatter;
+namespace Drupal\field_multi\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Field\FieldItemListInterface;
 
 /**
- * Plugin implementation of the 'field_example_simple_text' formatter.
+ * Plugin implementation of the 'field_multi' formatter.
  *
  * @FieldFormatter(
- *   id = "field_example_simple_text",
- *   module = "field_example",
- *   label = @Translation("Simple text-based formatter"),
+ *   id = "field_multi",
+ *   module = "field_multi",
+ *   label = @Translation("This is a field multi formatter"),
  *   field_types = {
- *     "field_example_rgb"
+ *     "field_multi"
  *   }
  * )
  */
