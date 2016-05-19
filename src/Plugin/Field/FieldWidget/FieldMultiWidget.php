@@ -46,8 +46,7 @@ class FieldMultiWidget extends WidgetBase {
       '#type' => 'file',
       '#title' => t('Image'),
 
-      '#default_value' => isset($items[$delta]->image) ?
-        $items[$delta]->image : null,
+      '#default_value' => $value,
 
       '#empty_value' => '',
     );
