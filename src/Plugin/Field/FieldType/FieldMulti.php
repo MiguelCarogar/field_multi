@@ -33,18 +33,20 @@ class FieldMulti extends FieldItemBase {
     return array(
       'columns' => array(
         'image' => array(
-          'type' => 'text',
-          'size' => 'medium',
+          'description' => 'The URI of the image.',
+          'type' => 'varchar',
+          'length' => 255,
         ),
         'title' => array(
-          'type' => 'text',
-          'size' => 'medium',
-          'not null' => FALSE,
+          'description' => 'The title text.',
+          'type' => 'varchar',
+          'length' => 255,
         ),
         'body' => array(
-          'type' => 'text',
-          'size' => 'medium',
-          'not null' => FALSE,
+          'description' => 'Long text.',
+          'type' => 'blob',
+          'size' => 'big',
+          'serialize' => TRUE,
         ),
       ),
     );
