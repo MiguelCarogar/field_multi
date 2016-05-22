@@ -12,6 +12,12 @@ use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\image\Plugin\Field\FieldWidget\ImageWidget;
 use Drupal\image\Plugin\Field\FieldWidget\FileWidget;
+use Drupal\Component\Utility\NestedArray;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Field\FieldFilteredMarkup;
+
+
+
 
 /**
  * Plugin implementation of the 'field_multi' widget.
@@ -35,19 +41,17 @@ class FieldMultiWidget extends WidgetBase {
     $element['title']= array(
       '#type' => 'textfield',
       '#default_value' => $value,
-      '#empty_value' => '',
+      '#required' => FALSE,
     );
     $element['body']= array(
       '#type' => 'textfield',
       '#default_value' => $value,
-      '#empty_value' => '',
+      '#required' => FALSE,
     );
     $element['image'] = array(
       '#type' => 'file',
       '#title' => t('Image'),
-
-      '#default_value' => $value,
-
+      '#upload_location' => 'public://test',
       '#empty_value' => '',
     );
     return $element;

@@ -40,7 +40,7 @@ class FieldMultiFormatter extends FormatterBase {
         '#attributes' => array(
           'style' => 'color: ' . $item->value,
         ),
-        '#value' => $this->t('The color code in this field is @code', array('@code' => $item->value)),
+        '#value' => $item->title . $item->body . '<img src="' . $item->image .'"></img>',
       );
     }
 
